@@ -1,41 +1,90 @@
 [
     {
-        "name": "iPhone 14 Pro Max",
-        "price": 3.999,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Apple_iPhone_14_Pro_Max_-_front_%282022%29.jpg/1200px-Apple_iPhone_14_Pro_Max_-_front_%282022%29.jpg",
-        "spec": [
-            "Màn hình: 6,7 inch, OLED",
-            "Hệ điều hành: iOS 16",
-            "Chip xử lý: A16 Bionic",
-            "Camera chính: 48MP",
-            "Camera selfie: 12MP",
-            "Pin: 4.352mAh"
-        ]
+        "id": "1",
+        "name": "iphoneX",
+        "price": 1000,
+        "screen": "screen 68",
+        "backCamera": "2 camera 12 MP",
+        "frontCamera": "7 MP",
+        "img": "https://cdn.tgdd.vn/Products/Images/42/114115/iphone-x-64gb-hh-600x600.jpg",
+        "desc": "Thiết kế mang tính đột phá",
+        "type": "iphone"
     },
     {
-        "name": "Samsung Galaxy S23 Ultra",
-        "price": 2.999,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Samsung_Galaxy_S23_Ultra_%282023%29.jpg/1200px-Samsung_Galaxy_S23_Ultra_%282023%29.jpg",
-        "spec": [
-            "Màn hình: 6,8 inch, AMOLED",
-            "Hệ điều hành: Android 13",
-            "Chip xử lý: Exynos 2300",
-            "Camera chính: 200MP",
-            "Camera selfie: 40MP",
-            "Pin: 5.000mAh"
-        ]
+        "id": "2",
+        "name": "Samsung Galaxy M51 ",
+        "price": 3500,
+        "screen": "screen 69",
+        "backCamera": " Chính 64 MP & Phụ 12 MP, 5 MP, 5 MP",
+        "frontCamera": " 32 MP",
+        "img": "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
+        "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+        "type": "Samsung"
     },
     {
-        "name": "Google Pixel 7 Pro",
-        "price": 1.999,
-        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Google_Pixel_7_Pro_%282023%29.jpg/1200px-Google_Pixel_7_Pro_%282023%29.jpg",
-        "spec": [
-            "Màn hình: 6,7 inch, OLED",
-            "Hệ điều hành: Android 13",
-            "Chip xử lý: Tensor 2",
-            "Camera chính: 50MP",
-            "Camera selfie: 11,1MP",
-            "Pin: 5.000mAh"
-        ]
+        "id": "3",
+        "name": "Samsung Galaxy M22",
+        "price": 45000,
+        "screen": "screen 70",
+        "backCamera": "Chính 12 MP & Phụ 64 MP, 12 MP",
+        "frontCamera": " 32 MP",
+        "img": "https://cdn.tgdd.vn/Products/Images/42/217536/samsung-galaxy-m51-trang-new-600x600-600x600.jpg",
+        "desc": "Thiết kế mang tính đột phá",
+        "type": "Samsung"
+    },
+    {
+        "id": "4",
+        "name": "Iphone 11",
+        "price": 1000,
+        "screen": "screen 54",
+        "backCamera": "Camera: Chính 12 MP & Phụ 64 MP, 12 MP",
+        "frontCamera": "32 MP",
+        "img": "https://img.tgdd.vn/imgt/f_webp,fit_outside,quality_75/https://cdn.tgdd.vn/Products/Images/42/153856/iphone-xi-den-200x200.jpg",
+        "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+        "type": "Iphone"
+    },
+    {
+        "id": "5",
+        "name": "Oppo Reno8 Pro+",
+        "price": 2500,
+        "screen": "screen 68",
+        "backCamera": "Camera: Chính 50 MP, 8 MP, 2 MP & Phụ 32 MP",
+        "frontCamera": "50 MP",
+        "img": "https://cdn.tgdd.vn/Products/Images/42/276411/oppo-reno8-pro-plus-1-600x600.jpg",
+        "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+        "type": "Oppo"
+    },
+    {
+        "id": "6",
+        "name": "Xiaomi 12S Ultra",
+        "price": 3500,
+        "screen": "screen 69",
+        "backCamera": "Camera: Chính 50 MP, 48 MP, 48 MP & Phụ 20 MP",
+        "frontCamera": "32 MP",
+        "img": "https://cdn.tgdd.vn/Products/Images/42/284116/xiaomi-12s-ultra-050722-023437-600x600.jpg",
+        "desc": "Thiết kế đột phá, màn hình tuyệt đỉnh",
+        "type": "Xiaomi"
+    },
+    {
+        "id": "7",
+        "name": "Samsung Galaxy Z Fold 4",
+        "price": 4500,
+        "screen": "screen 7.6 inch, Dynamic AMOLED 2X",
+        "backCamera": "Camera: Chính 108 MP & Phụ 12 MP, 12 MP, 10 MP",
+        "frontCamera": "Camera selfie dưới màn hình 4 MP",
+        "img": "https://cdn.tgdd.vn/Products/Images/42/250625/samsung-galaxy-z-fold4-256gb-1.jpg",
+        "desc": "Màn hình gập đa năng, camera chất lượng",
+        "type": "Samsung"
+    },
+    {
+        "id": "8",
+        "name": "iPhone 14 Pro",
+        "price": 4000,
+        "screen": "screen 6.1 inch, Super Retina XDR",
+        "backCamera": "Camera: Chính 48 MP & Phụ 12 MP, 12 MP",
+        "frontCamera": "Camera selfie 12 MP",
+        "img": "https://cdn.trangthienlong.com.vn/wp-content/uploads/2022/10/iphone-14-pro-max-mau-tim-deep-purple-128gb-256gb-512gb-1tb-trang-thien-long-mobile-510x510.jpg",
+        "desc": "Thiết kế mới, camera chất lượng",
+        "type": "iPhone"
     }
 ]
