@@ -1,0 +1,41 @@
+[
+    {
+        "name": "iPhone 14 Pro Max",
+        "price": 3.999,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Apple_iPhone_14_Pro_Max_-_front_%282022%29.jpg/1200px-Apple_iPhone_14_Pro_Max_-_front_%282022%29.jpg",
+        "spec": [
+            "Màn hình: 6,7 inch, OLED",
+            "Hệ điều hành: iOS 16",
+            "Chip xử lý: A16 Bionic",
+            "Camera chính: 48MP",
+            "Camera selfie: 12MP",
+            "Pin: 4.352mAh"
+        ]
+    },
+    {
+        "name": "Samsung Galaxy S23 Ultra",
+        "price": 2.999,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Samsung_Galaxy_S23_Ultra_%282023%29.jpg/1200px-Samsung_Galaxy_S23_Ultra_%282023%29.jpg",
+        "spec": [
+            "Màn hình: 6,8 inch, AMOLED",
+            "Hệ điều hành: Android 13",
+            "Chip xử lý: Exynos 2300",
+            "Camera chính: 200MP",
+            "Camera selfie: 40MP",
+            "Pin: 5.000mAh"
+        ]
+    },
+    {
+        "name": "Google Pixel 7 Pro",
+        "price": 1.999,
+        "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Google_Pixel_7_Pro_%282023%29.jpg/1200px-Google_Pixel_7_Pro_%282023%29.jpg",
+        "spec": [
+            "Màn hình: 6,7 inch, OLED",
+            "Hệ điều hành: Android 13",
+            "Chip xử lý: Tensor 2",
+            "Camera chính: 50MP",
+            "Camera selfie: 11,1MP",
+            "Pin: 5.000mAh"
+        ]
+    }
+]
