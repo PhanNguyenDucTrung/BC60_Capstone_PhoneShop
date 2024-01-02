@@ -185,7 +185,7 @@ window.addEventListener('click', event => {
 
 /////////////////////////////////////////////////////////
 // Clear cart
-const clearCartButton = document.getElementById('clear-cart-button');
+const clearCartButton = document.getElementById('checkout-cart-button');
 
 clearCartButton.addEventListener('click', () => {
     myCart.clearCart();
