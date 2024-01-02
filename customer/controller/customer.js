@@ -1,6 +1,18 @@
 const productsList = document.querySelector('.products-list');
 
+/////////////////////////////////////////////////////////
+// Local Storage
+const saveCartToLocalStorage = () => {
+    localStorage.setItem('cart', JSON.stringify(myCart.cart));
+};
+
+const loadCartFromLocalStorage = () => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+};
+
 const myCart = new Cart();
+myCart.cart = loadCartFromLocalStorage();
 let products;
 
 async function fetchAndDisplayProducts() {
@@ -8,7 +20,6 @@ async function fetchAndDisplayProducts() {
         // const response = await fetch('../../products.json');
         const response = await fetch('https://65869ea2468ef171392e7a43.mockapi.io/api/products');
         products = await response.json();
-        console.log(products);
         renderUI(products);
     } catch (error) {
         console.error('Error fetching data:', error);
@@ -58,31 +69,124 @@ document.querySelector('#product-type').addEventListener('change', filterProduct
 
 ///////////////////////////////////////////////////////
 // Add to cart
-const cart = [];
-
-const addToCart = event => {
-    // Prevent the default behavior of the anchor tag
+function addToCart(event) {
     event.preventDefault();
 
-    // Get the product ID from the data attribute
     const productId = event.target.dataset.productId;
 
-    // Find the selected product in the products array
     const selectedProduct = products.find(product => product.id === productId);
 
-    // Check if the product is already in the cart
-    const existingCartItemIndex = myCart.timViTri(productId);
+    myCart.addOrUpdateCartItem(selectedProduct);
+    saveCartToLocalStorage();
 
-    if (existingCartItemIndex !== -1) {
-        // If the product is already in the cart, update its quantity
-        myCart.capNhatSoLuong(productId, myCart.cart[existingCartItemIndex].quantity + 1);
-    } else {
-        // If the product is not in the cart, create a new CartItem
-        const newCartItem = new CartItem(selectedProduct, 1);
-        myCart.themGH(newCartItem);
-    }
+    updateCartItemsList();
+}
 
-    // Optional: Update the UI to reflect the change (e.g., show a notification)
-    console.log('Product added to the cart.');
-    console.log('Current Cart:', myCart.cart);
+/////////////////////////////////////////////////////////
+// Cart Popup
+const cartIcon = document.getElementById('cart-icon');
+const cartPopup = document.getElementById('cart-popup');
+const cartItemsList = document.getElementById('cart-items-list');
+
+const updateCartItemsList = () => {
+    let content = '';
+    let totalPrice = 0;
+
+    myCart.cart.forEach(cartItem => {
+        const { product, quantity } = cartItem;
+        const { id, name, img, price } = product;
+
+        const itemPrice = price * quantity;
+        totalPrice += itemPrice;
+
+        content += `
+            <li class="cart-item">
+                <img src="${img}" alt="${name}">
+                <div class="cart-item-info">
+                    <h3>${name}</h3>
+                    <p class="quantity">Quantity: ${quantity}</p>
+                    <p class="quantity">Price: ${price}</p>
+                    <div class="quantity-buttons">
+                        <button class="quantity-btn" data-action="decrease" data-product-id="${id}">-</button>
+                        <button class="quantity-btn" data-action="increase" data-product-id="${id}">+</button>
+                        <button class="remove-btn" data-product-id="${id}">Remove</button>
+                    </div>
+                </div>
+            </li>
+        `;
+    });
+
+    cartItemsList.innerHTML = content;
+
+    document.querySelectorAll('.remove-btn').forEach(removeButton => {
+        removeButton.addEventListener('click', event => {
+            const productId = event.target.dataset.productId;
+            myCart.removeCartItem(productId);
+            saveCartToLocalStorage();
+            updateCartItemsList();
+        });
+    });
+
+    // Display total price
+    const totalElement = document.createElement('div');
+    totalElement.classList.add('total-price');
+    totalElement.innerHTML = `<p>Total: ${totalPrice.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND',
+    })}</p>`;
+    cartItemsList.appendChild(totalElement);
 };
+
+document.getElementById('cart-items-list').addEventListener('click', event => {
+    event.stopPropagation();
+    const target = event.target;
+    const action = target.dataset.action;
+    const productId = target.dataset.productId;
+
+    if (action && productId) {
+        if (action === 'increase') {
+            myCart.updateCartItemQuantity(productId, 1);
+        } else if (action === 'decrease') {
+            const currentQuantity = myCart.cart.find(cartItem => cartItem.product.id === productId)?.quantity || 0;
+            if (currentQuantity > 1) {
+                myCart.updateCartItemQuantity(productId, -1);
+            } else {
+                myCart.removeCartItem(productId);
+            }
+        }
+
+        saveCartToLocalStorage();
+        updateCartItemsList();
+    }
+});
+
+function toggleCartPopup() {
+    const currentRightValue = parseFloat(getComputedStyle(cartPopup).right);
+
+    if (currentRightValue === 0) {
+        cartPopup.style.right = '-400px';
+    } else {
+        cartPopup.style.right = '0';
+    }
+}
+
+cartIcon.addEventListener('click', event => {
+    event.stopPropagation();
+    toggleCartPopup();
+    updateCartItemsList();
+});
+
+window.addEventListener('click', event => {
+    const cartPopup = document.getElementById('cart-popup');
+    if (event.target !== cartIcon && !cartPopup.contains(event.target)) {
+        cartPopup.style.right = '-400px';
+    }
+});
+
+/////////////////////////////////////////////////////////
+// Clear cart
+const clearCartButton = document.getElementById('clear-cart-button');
+
+clearCartButton.addEventListener('click', () => {
+    myCart.clearCart();
+});
