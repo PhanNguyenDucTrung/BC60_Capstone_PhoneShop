@@ -20,6 +20,10 @@
         <link rel="stylesheet" href="../../assets/css/style.css" />
 
         <style>
+            * {
+                box-sizing: border-box;
+            }
+
             body {
                 font-family: 'Roboto', sans-serif;
                 background-color: #f8f8f8;
@@ -154,7 +158,6 @@
             .container {
                 max-width: 1380px;
                 margin: 0 auto;
-                padding: 20px;
             }
 
             .products-list {
@@ -241,6 +244,9 @@
             }
 
             .product-info .buy-btn {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
                 background-color: #007bff;
                 color: #fff;
                 font-weight: 500;
@@ -248,13 +254,18 @@
                 border: none;
                 border-radius: 5px;
                 text-decoration: none;
+                letter-spacing: 0.8px;
                 cursor: pointer;
-                display: inline-block;
                 transition: background-color 0.3s ease-in-out;
             }
 
             .product-info .buy-btn:hover {
                 background-color: #0056b3;
+            }
+
+            .buy-btn img {
+                margin-right: 8px;
+                filter: invert(65%) sepia(48%) saturate(2355%) hue-rotate(188deg) brightness(172%) contrast(88%);
             }
 
             .product-filter {

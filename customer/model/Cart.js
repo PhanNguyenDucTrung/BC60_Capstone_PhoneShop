@@ -4,6 +4,7 @@ class Cart {
     }
 
     addOrUpdateCartItem(product) {
+        console.log(this.cart);
         const existingCartItem = this.cart.find(cartItem => cartItem.product.id === product.id);
 
         if (existingCartItem) {

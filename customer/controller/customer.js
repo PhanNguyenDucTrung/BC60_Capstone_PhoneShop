@@ -42,7 +42,10 @@ const renderUI = products => {
                   <p>${frontCamera}</p>
                   <p class="desc">${desc}</p> 
                   <p class="price">Giá: ${price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
-                  <a href="#" class="buy-btn" data-product-id="${id}">Add To Cart</a>
+                  <a href="#" class="buy-btn" data-product-id="${id}">
+                     <img src="../../assets/img/cart-alt.svg" alt="cart icon" /> 
+                     <span>Add To Cart</span>      
+                  </a>
                 </div>
               </div>
             </div>`;
@@ -50,6 +53,7 @@ const renderUI = products => {
 
     productsList.innerHTML = content;
 
+    console.log(products);
     const addToCartButtons = document.querySelectorAll('.buy-btn');
     addToCartButtons.forEach(button => {
         button.addEventListener('click', addToCart);
@@ -72,14 +76,24 @@ document.querySelector('#product-type').addEventListener('change', filterProduct
 function addToCart(event) {
     event.preventDefault();
 
-    const productId = event.target.dataset.productId;
+    const button = event.target.closest('.buy-btn');
+    if (button) {
+        const productId = button.dataset.productId;
+        console.log(productId);
 
-    const selectedProduct = products.find(product => product.id === productId);
+        const selectedProduct = products.find(product => {
+            console.log(product.id);
+            return product.id === productId;
+        });
 
-    myCart.addOrUpdateCartItem(selectedProduct);
-    saveCartToLocalStorage();
+        console.log(selectedProduct);
 
-    updateCartItemsList();
+        myCart.addOrUpdateCartItem(selectedProduct);
+
+        saveCartToLocalStorage();
+
+        updateCartItemsList();
+    }
 }
 
 /////////////////////////////////////////////////////////
@@ -94,6 +108,7 @@ const updateCartItemsList = () => {
 
     myCart.cart.forEach(cartItem => {
         const { product, quantity } = cartItem;
+
         const { id, name, img, price } = product;
 
         const itemPrice = price * quantity;
