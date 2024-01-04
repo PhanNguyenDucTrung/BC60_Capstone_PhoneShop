@@ -12,15 +12,15 @@ function renderUI(data) {
         <tr>
             <td style="font-size:1.1rem"><b>${i + 1}</b></td>
             <td style="font-size:1.2rem"><b>${item.name}</b></td>
-            <td><b>${item.price}</b></td>
-            <td><img style = "width: 100px" src="${item.img}" alt=""></td>
+            <td style="font-size:1.2rem"><b>${item.price}</b></td>
+            <td><img style = "max-width: 100px" src="${item.img}" alt=""></td>
             <td class="text-left">
                 <b>Screen:</b> ${item.screen} <br>
                 <b>Camera Trước:</b> ${item.frontCamera} <br>
                 <b>Camera sau:</b> ${item.backCamera} <br>
                 <b>Mô tả:</b> ${item.desc}
             </td>
-            <td><b>${item.type}</b></td>
+            <td style="font-size:1.2rem"><b>${item.type}</b></td>
             <td>
                 <button id="btnEdit" onclick="handleEdit(${item.id})" class="btn btn-primary" data-toggle="modal" data-target="#modelId">Sửa</button>
                 <button onclick = "DeleteProduct(${item.id})" class="btn btn-danger">Xoá</button>
