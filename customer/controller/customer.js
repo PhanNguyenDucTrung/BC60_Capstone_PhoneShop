@@ -72,6 +72,7 @@ function addToCart(event) {
     event.preventDefault();
 
     const productId = event.target.dataset.productId;
+    console.log(productId);
 
     const selectedProduct = products.find(product => product.id === productId);
 
@@ -90,6 +91,7 @@ const cartItemsList = document.getElementById('cart-items-list');
 const updateCartItemsList = () => {
     let content = '';
     let totalPrice = 0;
+    let totalQuantity = 0;
 
     myCart.cart.forEach(cartItem => {
         const { product, quantity } = cartItem;
@@ -97,6 +99,7 @@ const updateCartItemsList = () => {
 
         const itemPrice = price * quantity;
         totalPrice += itemPrice;
+        totalQuantity += 1;
 
         content += `
             <li class="cart-item">
@@ -134,7 +137,11 @@ const updateCartItemsList = () => {
         currency: 'VND',
     })}</p>`;
     cartItemsList.appendChild(totalElement);
+
+    // Display total quantity
+    document.querySelector('.badge').innerHTML = totalQuantity;
 };
+updateCartItemsList();
 
 document.getElementById('cart-items-list').addEventListener('click', event => {
     event.stopPropagation();
