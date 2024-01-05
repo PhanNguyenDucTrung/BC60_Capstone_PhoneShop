@@ -41,7 +41,10 @@ const renderUI = products => {
                   <p>${frontCamera}</p>
                   <p class="desc">${desc}</p> 
                   <p class="price">Giá: ${price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
-                  <a href="#" class="buy-btn" data-product-id="${id}">Add To Cart</a>
+                  <a href="#" class="buy-btn" data-product-id="${id}">
+                        <img src="../../assets/img/cart-alt.svg" alt="" />
+                        <span>Add To Cart</span> 
+                  </a>
                 </div>
               </div>
             </div>`;
