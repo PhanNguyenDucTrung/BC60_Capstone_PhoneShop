@@ -11,15 +11,14 @@ const loadCartFromLocalStorage = () => {
     return storedCart ? JSON.parse(storedCart) : [];
 };
 
+const api = new Api();
 const myCart = new Cart();
 myCart.cart = loadCartFromLocalStorage();
 let products;
 
 async function fetchAndDisplayProducts() {
     try {
-        // const response = await fetch('../../products.json');
-        const response = await fetch('https://65869ea2468ef171392e7a43.mockapi.io/api/products');
-        products = await response.json();
+        products = await api.fetchProducts();
         renderUI(products);
     } catch (error) {
         console.error('Error fetching data:', error);

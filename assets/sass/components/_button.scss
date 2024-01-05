@@ -1,0 +1,44 @@
+.quantity-btn {
+    background-color: $blue-color;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    padding: 5px 10px;
+
+    &:hover {
+        background-color: darken($blue-color, 10%);
+    }
+}
+
+.cart-item .remove-btn {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 7.5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    /* margin-top: 5px; */
+}
+
+.cart-item .remove-btn:hover {
+    background-color: #bd2130;
+}
+
+#checkout-cart-button {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+}
+
+#checkout-cart-button:hover {
+    background-color: #0c0c0c;
+    color: #fff;
+}
